@@ -20,3 +20,15 @@ def hottest_device(devices):
     return max(devices, key=lambda device: device['temp'])
 
 print(hottest_device(readings))
+
+def to_status(device):
+    if device["online"]:
+        status = "ok"
+    else:
+        status = "offline"
+    return{
+        "device": device["name"],
+        "status": status,
+        "celcius": device["temp"],
+    }
+print(to_status(readings[3]))
